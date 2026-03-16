@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ΓραφειοΑΙ — Εξήγηση Εγγράφων σε Απλά Ελληνικά</title>
+<meta name="description" content="Βάλε οποιοδήποτε έγγραφο ΑΑΔΕ, ΕΦΚΑ, ΚΕΠ ή δημόσιας υπηρεσίας και πάρε εξήγηση σε απλά ελληνικά.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ADSENSE PLACEHOLDER — αντικατέστησε με τον κωδικό σου από Google AdSense -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-light: #1a2f52;
+    --blue: #2455a4;
+    --blue-mid: #3a6bc7;
+    --sky: #ddeeff;
+    --accent: #e8a020;
+    --accent-light: #fdf3e0;
+    --white: #ffffff;
+    --off: #f7f8fa;
+    --gray: #8a93a2;
+    --text: #1a1f2e;
+    --text-muted: #5a6172;
+    --border: #e0e6ef;
+    --success: #1a7a4a;
+    --success-bg: #e8f7f0;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(15,31,61,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+
+  .logo-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .header-badge {
+    font-size: 11px;
+    color: #7a9cc8;
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── AD BANNER TOP ── */
+  .ad-banner {
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 8px;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+    padding: 52px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(36,85,164,0.3) 0%, transparent 70%);
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,160,32,0.15);
+    border: 1px solid rgba(232,160,32,0.3);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    color: var(--white);
+    line-height: 1.2;
+    max-width: 620px;
+    margin: 0 auto 14px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p {
+    color: #8aadcc;
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  @media(max-width: 700px) {
+    .main { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-header-icon {
+    width: 32px; height: 32px;
+    background: var(--sky);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+
+  .card-header h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .card-header p {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    padding: 16px 22px 0;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    padding: 8px 16px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all .15s;
+    background: none;
+    border-top: none; border-left: none; border-right: none;
+    margin-bottom: -1px;
+  }
+
+  .tab.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+
+  /* ── INPUT AREA ── */
+  .input-area { padding: 20px 22px; }
+
+  .textarea-wrap { position: relative; }
+
+  textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--off);
+    resize: vertical;
+    outline: none;
+    transition: border-color .2s;
+    line-height: 1.6;
+  }
+
+  textarea:focus { border-color: var(--blue-mid); background: var(--white); }
+  textarea::placeholder { color: var(--gray); font-size: 13px; }
+
+  .char-count {
+    position: absolute;
+    bottom: 10px; right: 12px;
+    font-size: 11px;
+    color: var(--gray);
+  }
+
+  /* ── FILE DROP ── */
+  .file-drop {
+    display: none;
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 36px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+    background: var(--off);
+  }
+
+  .file-drop:hover, .file-drop.dragover {
+    border-color: var(--blue-mid);
+    background: var(--sky);
+  }
+
+  .file-drop.active { display: block; }
+
+  .file-drop-icon { font-size: 32px; margin-bottom: 10px; }
+
+  .file-drop p { font-size: 13px; color: var(--text-muted); }
+  .file-drop strong { color: var(--blue); }
+
+  .file-drop input[type="file"] { display: none; }
+
+  .file-selected {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--success-bg);
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .file-selected.show { display: flex; }
+  .file-selected span { font-size: 13px; color: var(--success); }
+  .file-remove { margin-left: auto; font-size: 11px; color: var(--gray); cursor: pointer; }
+
+  /* ── CATEGORY SELECT ── */
+  .category-row {
+    margin-top: 14px;
+  }
+
+  .category-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .cat-btn {
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--off);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+
+  .cat-btn:hover { border-color: var(--blue-mid); color: var(--blue); }
+  .cat-btn.active { background: var(--sky); border-color: var(--blue); color: var(--blue); }
+
+  /* ── SUBMIT ── */
+  .submit-row {
+    padding: 0 22px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    flex: 1;
+    padding: 13px 20px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: var(--blue); }
+  .btn-primary:disabled { background: var(--gray); cursor: not-allowed; }
+
+  .btn-clear {
+    padding: 13px 16px;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+
+  .btn-clear:hover { border-color: var(--text-muted); color: var(--text); }
+
+  /* ── RESULT ── */
+  .result-area {
+    display: none;
+    padding: 0 22px 22px;
+  }
+
+  .result-area.show { display: block; }
+
+  .result-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 18px;
+  }
+
+  .result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .result-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--success-bg);
+    color: var(--success);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .copy-btn {
+    font-size: 12px;
+    color: var(--gray);
+    background: none;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+
+  .copy-btn:hover { color: var(--text); border-color: var(--text-muted); }
+
+  .result-content {
+    background: var(--off);
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+    white-space: pre-wrap;
+    border: 1px solid var(--border);
+  }
+
+  .result-content h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 16px 0 6px;
+  }
+
+  .result-content h3:first-child { margin-top: 0; }
+
+  /* ── LOADING ── */
+  .loading {
+    display: none;
+    padding: 0 22px 22px;
+  }
+
+  .loading.show { display: block; }
+
+  .loading-inner {
+    background: var(--off);
+    border-radius: 10px;
+    padding: 28px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 14px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-text { font-size: 13px; color: var(--text-muted); }
+  .loading-dots::after {
+    content: '';
+    animation: dots 1.4s steps(4, end) infinite;
+  }
+  @keyframes dots {
+    0%   { content: ''; }
+    25%  { content: '.'; }
+    50%  { content: '..'; }
+    75%  { content: '...'; }
+    100% { content: ''; }
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+  .side-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .side-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 12px;
+  }
+
+  .example-list { display: flex; flex-direction: column; gap: 6px; }
+
+  .example-item {
+    padding: 9px 12px;
+    background: var(--off);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .example-item:hover {
+    background: var(--sky);
+    border-color: var(--blue-mid);
+    color: var(--blue);
+  }
+
+  .example-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .ad-side {
+    background: var(--border);
+    border-radius: var(--radius);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px dashed var(--gray);
+  }
+
+  .ad-side p { font-size: 11px; color: var(--gray); }
+
+  .tip-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .tip {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .tip-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── ERROR ── */
+  .error-box {
+    display: none;
+    margin: 0 22px 16px;
+    padding: 12px 14px;
+    background: #fff0f0;
+    border: 1px solid #f5c6c6;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #c0392b;
+  }
+
+  .error-box.show { display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #5a7a9a;
+  }
+
+  footer a { color: #7a9cc8; text-decoration: none; }
+
+  /* ── AD BOTTOM ── */
+  .ad-bottom {
+    background: var(--border);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px 24px;
+    border-radius: 10px;
+    border: 1px dashed var(--gray);
+    font-size: 11px;
+    color: var(--gray);
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">
+    <div class="logo-icon">📄</div>
+    <span class="logo-text">Γραφειο<span>ΑΙ</span></span>
+  </a>
+  <span class="header-badge">100% Δωρεάν</span>
+</header>
+
+<!-- AD TOP — αντικατέστησε με AdSense code -->
+<div class="ad-banner">ΔΙΑΦΗΜΙΣΗ — Google AdSense Banner (728x90)</div>
+
+<div class="hero">
+  <div class="hero-tag">✦ Τεχνητή Νοημοσύνη</div>
+  <h1>Γραφειοκρατία σε <em>απλά</em> ελληνικά</h1>
+  <p>Βάλε οποιοδήποτε έγγραφο ΑΑΔΕ, ΕΦΚΑ, ΚΕΠ ή δημόσιας υπηρεσίας και πάρε εξήγηση σε απλά ελληνικά σε δευτερόλεπτα.</p>
+</div>
+
+<div class="main">
+  <div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">✍️</div>
+        <div>
+          <h2>Το έγγραφό σου</h2>
+          <p>Αντέγραψε το κείμενο ή ανέβασε αρχείο PDF</p>
+        </div>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('text', this)">Κείμενο</button>
+        <button class="tab" onclick="switchTab('file', this)">Αρχείο PDF</button>
+      </div>
+
+      <div class="input-area">
+        <!-- TEXT TAB -->
+        <div id="tab-text">
+          <div class="textarea-wrap">
+            <textarea
+              id="doc-input"
+              placeholder="Π.χ. «Σε βάρος σας βεβαιώθηκε ποσό 340,00€ λόγω εκπρόθεσμης υποβολής δήλωσης...»&#10;&#10;Ή αντέγραψε ολόκληρο το έγγραφο εδώ."
+              oninput="updateCharCount(this)"
+              maxlength="8000"
+            ></textarea>
+            <span class="char-count" id="char-count">0 / 8000</span>
+          </div>
+        </div>
+
+        <!-- FILE TAB -->
+        <div id="tab-file" style="display:none">
+          <div class="file-drop" id="file-drop" onclick="document.getElementById('file-input').click()" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFile(event)">
+            <div class="file-drop-icon">📎</div>
+            <p><strong>Κλικ για να επιλέξεις</strong> ή σύρε το αρχείο εδώ</p>
+            <p style="margin-top:6px;font-size:11px;">PDF έως 5MB</p>
+            <input type="file" id="file-input" accept=".pdf" onchange="handleFile(this.files[0])">
+          </div>
+          <div class="file-selected" id="file-selected">
+            <span>📄</span>
+            <span id="file-name">—</span>
+            <span class="file-remove" onclick="removeFile()">✕ Αφαίρεση</span>
+          </div>
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="category-row">
+          <span class="category-label">Κατηγορία εγγράφου (προαιρετικό)</span>
+          <div class="categories">
+            <button class="cat-btn" onclick="toggleCat(this)">ΑΑΔΕ / Εφορία</button>
+            <button class="cat-btn" onclick="toggleCat(this)">ΕΦΚΑ / ΙΚΑ</button>
+            <button class="cat-btn" onclick="toggleCat(this)">ΚΕΠ</button>
+            <button class="cat-btn" onclick="toggleCat(this)">Δικαστήριο</button>
+            <button class="cat-btn" onclick="toggleCat(this)">Τράπεζα</button>
+            <button class="cat-btn" onclick="toggleCat(this)">Ασφαλιστική</button>
+            <button class="cat-btn" onclick="toggleCat(this)">Άλλο</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn-primary" id="submit-btn" onclick="explain()">
+          <span>🔍</span> Εξήγησέ το
+        </button>
+        <button class="btn-clear" onclick="clearAll()">Καθαρισμός</button>
+      </div>
+
+      <!-- ERROR -->
+      <div class="error-box" id="error-box"></div>
+
+      <!-- LOADING -->
+      <div class="loading" id="loading">
+        <div class="loading-inner">
+          <div class="spinner"></div>
+          <p class="loading-text">Αναλύω το έγγραφο<span class="loading-dots"></span></p>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div class="result-area" id="result-area">
+        <hr class="result-divider">
+        <div class="result-header">
+          <span class="result-tag">✓ Ανάλυση ολοκληρώθηκε</span>
+          <button class="copy-btn" onclick="copyResult()">📋 Αντιγραφή</button>
+        </div>
+        <div class="result-content" id="result-content"></div>
+      </div>
+    </div>
+
+    <!-- AD BOTTOM -->
+    <div class="ad-bottom">ΔΙΑΦΗΜΙΣΗ — Google AdSense (728x90)</div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="side-card">
+      <div class="side-title">Παραδείγματα</div>
+      <div class="example-list">
+        <div class="example-item" onclick="loadExample('aade')">
+          <div class="example-dot"></div>
+          Ειδοποίηση ΑΑΔΕ
+        </div>
+        <div class="example-item" onclick="loadExample('efka')">
+          <div class="example-dot"></div>
+          Επιστολή ΕΦΚΑ
+        </div>
+        <div class="example-item" onclick="loadExample('kep')">
+          <div class="example-dot"></div>
+          Έγγραφο ΚΕΠ
+        </div>
+        <div class="example-item" onclick="loadExample('dikaio')">
+          <div class="example-dot"></div>
+          Δικαστική ειδοποίηση
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense 250x250 -->
+    <div class="ad-side">
+      <p>ΔΙΑΦΗΜΙΣΗ</p>
+      <p>Google AdSense</p>
+      <p>250×250</p>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Συμβουλές</div>
+      <div class="tip-list">
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>Αντέγραψε ολόκληρο το έγγραφο για καλύτερα αποτελέσματα</span>
+        </div>
+        <div class="tip">
+          <span class="tip-icon">🔒</span>
+          <span>Το κείμενό σου δεν αποθηκεύεται πουθενά</span>
+        </div>
+        <div class="tip">
+          <span class="tip-icon">📌</span>
+          <span>Επίλεξε κατηγορία για πιο στοχευμένη εξήγηση</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>ΓραφειοΑΙ — Δωρεάν εργαλείο εξήγησης εγγράφων | <a href="#">Πολιτική Απορρήτου</a> | <a href="#">Επικοινωνία</a></p>
+  <p style="margin-top:6px;opacity:0.6">Το εργαλείο αυτό παρέχει μόνο πληροφοριακή βοήθεια. Για νομικές αποφάσεις συμβουλευτείτε ειδικό.</p>
+</footer>
+
+<script>
+// ── STATE ──
+let selectedCat = '';
+let pdfBase64 = null;
+let pdfName = '';
+let currentTab = 'text';
+
+// ── TABS ──
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-text').style.display = tab === 'text' ? 'block' : 'none';
+  document.getElementById('tab-file').style.display  = tab === 'file' ? 'block' : 'none';
+  document.getElementById('file-drop').style.display = tab === 'file' ? 'block' : 'none';
+}
+
+// ── CHAR COUNT ──
+function updateCharCount(el) {
+  document.getElementById('char-count').textContent = el.value.length + ' / 8000';
+}
+
+// ── CATEGORIES ──
+function toggleCat(btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  if (selectedCat === btn.textContent) {
+    selectedCat = '';
+  } else {
+    btn.classList.add('active');
+    selectedCat = btn.textContent;
+  }
+}
+
+// ── FILE HANDLING ──
+function handleFile(file) {
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) {
+    showError('Το αρχείο είναι μεγαλύτερο από 5MB.');
+    return;
+  }
+  pdfName = file.name;
+  const reader = new FileReader();
+  reader.onload = e => {
+    pdfBase64 = e.target.result.split(',')[1];
+    document.getElementById('file-name').textContent = pdfName;
+    document.getElementById('file-selected').classList.add('show');
+    document.getElementById('file-drop').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeFile() {
+  pdfBase64 = null; pdfName = '';
+  document.getElementById('file-selected').classList.remove('show');
+  document.getElementById('file-drop').style.display = 'block';
+  document.getElementById('file-input').value = '';
+}
+
+function dragOver(e) { e.preventDefault(); document.getElementById('file-drop').classList.add('dragover'); }
+function dragLeave()  { document.getElementById('file-drop').classList.remove('dragover'); }
+function dropFile(e) {
+  e.preventDefault();
+  dragLeave();
+  const file = e.dataTransfer.files[0];
+  if (file && file.type === 'application/pdf') handleFile(file);
+}
+
+// ── EXAMPLES ──
+const examples = {
+  aade: `ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ\nΑΑΔΕ - ΑΝΕΞΑΡΤΗΤΗ ΑΡΧΗ ΔΗΜΟΣΙΩΝ ΕΣΟΔΩΝ\n\nΕΙΔΟΠΟΙΗΣΗ ΒΕΒΑΙΩΣΗΣ ΟΦΕΙΛΗΣ\n\nΣε βάρος σας βεβαιώθηκε ποσό 340,00€ λόγω εκπρόθεσμης υποβολής δήλωσης φορολογίας εισοδήματος φορολογικού έτους 2022 σύμφωνα με τις διατάξεις του άρθρου 54 του ν.4174/2013. Η καταληκτική ημερομηνία εξόφλησης ορίζεται εντός τριάντα (30) ημερολογιακών ημερών από την κοινοποίηση της παρούσης. Σε περίπτωση μη εξόφλησης εντός της ανωτέρω προθεσμίας, θα επιβαρυνθείτε με πρόσθετα τέλη εκπρόθεσμης καταβολής 1% μηνιαίως επί του οφειλόμενου ποσού.`,
+  efka: `ΕΦΚΑ - ΕΝΙΑΙΟΣ ΦΟΡΕΑΣ ΚΟΙΝΩΝΙΚΗΣ ΑΣΦΑΛΙΣΗΣ\nΠΕΡΙΦΕΡΕΙΑΚΟ ΥΠΟΚΑΤΑΣΤΗΜΑ ΑΘΗΝΩΝ\n\nΓΝΩΣΤΟΠΟΙΗΣΗ ΕΙΣΦΟΡΩΝ\n\nΣας γνωστοποιούμε ότι σύμφωνα με τα στοιχεία που τηρούνται στη βάση δεδομένων μας, για το μήνα Ιανουάριο 2024, οι ασφαλιστικές εισφορές σας ανέρχονται στο ποσό των 186,50€. Η καταβολή δύναται να πραγματοποιηθεί έως την τελευταία εργάσιμη ημέρα του επόμενου μήνα μέσω των πιστωτικών ιδρυμάτων ή μέσω της ηλεκτρονικής πλατφόρμας του ΕΦΚΑ. Εκπρόθεσμη καταβολή συνεπάγεται επιβολή πρόσθετης επιβάρυνσης 3% μηνιαίως.`,
+  kep: `ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ\nΔΗΜΟΣ ΑΘΗΝΑΙΩΝ - ΚΕΠ 1234\n\nΑΙΤΗΣΗ - ΥΠΕΥΘΥΝΗ ΔΗΛΩΣΗ\n\nΠαρακαλείσθε όπως προσκομίσετε εντός δέκα (10) εργάσιμων ημερών από της επιδόσεως της παρούσης τα κάτωθι δικαιολογητικά προκειμένου να ολοκληρωθεί η εκκρεμής αίτησή σας με αριθμό πρωτοκόλλου 45821/2024: α) Αντίγραφο αστυνομικής ταυτότητας, β) Πιστοποιητικό οικογενειακής κατάστασης, γ) Εκκαθαριστικό σημείωμα τελευταίου φορολογικού έτους.`,
+  dikaio: `ΕΙΡΗΝΟΔΙΚΕΙΟ ΑΘΗΝΩΝ\n\nΔΙΑΤΑΓΗ ΠΛΗΡΩΜΗΣ\nΑριθμός: 4521/2024\n\nΔΙΑΤΑΣΣΟΜΕΝ τον οφειλέτη όπως εντός δεκαπέντε (15) εργασίμων ημερών από της επιδόσεως της παρούσης καταβάλει στον αιτούντα το ποσό των 2.300,00€ πλέον τόκων υπερημερίας από 01/01/2024 και έξοδα εκδόσεως 85,00€. Σε περίπτωση μη συμμορφώσεως εντός της ταχθείσης προθεσμίας, δύναται να κινηθεί διαδικασία αναγκαστικής εκτέλεσης.`
+};
+
+function loadExample(key) {
+  document.getElementById('doc-input').value = examples[key];
+  updateCharCount(document.getElementById('doc-input'));
+  if (currentTab !== 'text') switchTab('text', document.querySelectorAll('.tab')[0]);
+  document.getElementById('doc-input').focus();
+}
+
+// ── CLEAR ──
+function clearAll() {
+  document.getElementById('doc-input').value = '';
+  updateCharCount(document.getElementById('doc-input'));
+  document.getElementById('result-area').classList.remove('show');
+  document.getElementById('loading').classList.remove('show');
+  hideError();
+  removeFile();
+}
+
+// ── ERROR ──
+function showError(msg) {
+  const el = document.getElementById('error-box');
+  el.textContent = '⚠️ ' + msg;
+  el.classList.add('show');
+}
+function hideError() {
+  document.getElementById('error-box').classList.remove('show');
+}
+
+// ── COPY ──
+function copyResult() {
+  const text = document.getElementById('result-content').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✓ Αντιγράφηκε';
+    setTimeout(() => { btn.textContent = '📋 Αντιγραφή'; }, 2000);
+  });
+}
+
+// ── MAIN: EXPLAIN ──
+async function explain() {
+  hideError();
+
+  const text = document.getElementById('doc-input').value.trim();
+  const hasText = text.length > 20;
+  const hasPDF = pdfBase64 !== null;
+
+  if (!hasText && !hasPDF) {
+    showError('Παρακαλώ βάλε κείμενο ή ανέβασε αρχείο PDF.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span>⏳</span> Αναλύω...';
+
+  document.getElementById('result-area').classList.remove('show');
+  document.getElementById('loading').classList.add('show');
+
+  const catHint = selectedCat ? `Κατηγορία εγγράφου: ${selectedCat}. ` : '';
+
+  const systemPrompt = `Είσαι ένας φιλικός βοηθός που εξηγεί δύσκολα ελληνικά γραφειοκρατικά έγγραφα σε απλή, καθημερινή γλώσσα. 
+
+Δομή ΠΑΝΤΑ την απάντησή σου ως εξής:
+🔵 ΤΙ ΛΕΕΙ ΤΟ ΕΓΓΡΑΦΟ
+Σε 2-3 προτάσεις, εξήγησε το κύριο νόημα.
+
+📋 ΤΙ ΣΕ ΖΗΤΟΥΝ
+Ποιες ενέργειες χρειάζονται από σένα.
+
+⏰ ΠΡΟΘΕΣΜΙΕΣ
+Αν υπάρχουν, τόνισε τες ξεκάθαρα.
+
+💰 ΠΟΣΑ / ΟΦΕΙΛΕΣ
+Αν αναφέρονται χρήματα, εξήγησε τι είναι.
+
+💡 ΣΥΜΒΟΥΛΗ
+Ένα πρακτικό βήμα που μπορεί να κάνει ο άνθρωπος τώρα.
+
+Χρησιμοποίησε απλά ελληνικά, αποφύγε νομική ορολογία, και μην κάνεις εικασίες για στοιχεία που δεν αναφέρονται στο έγγραφο.`;
+
+  let userContent;
+
+  if (hasPDF) {
+    userContent = [
+      { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: pdfBase64 } },
+      { type: 'text', text: `${catHint}Παρακαλώ εξήγησέ μου αυτό το έγγραφο σε απλά ελληνικά.` }
+    ];
+  } else {
+    userContent = `${catHint}Παρακαλώ εξήγησέ μου αυτό το έγγραφο σε απλά ελληνικά:\n\n${text}`;
+  }
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userContent }]
+      })
+    });
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err.error?.message || 'Σφάλμα API: ' + response.status);
+    }
+
+    const data = await response.json();
+    const result = data.content?.map(c => c.text || '').join('\n').trim();
+
+    if (!result) throw new Error('Δεν λήφθηκε απάντηση.');
+
+    document.getElementById('loading').classList.remove('show');
+    document.getElementById('result-content').textContent = result;
+    document.getElementById('result-area').classList.add('show');
+
+  } catch (err) {
+    document.getElementById('loading').classList.remove('show');
+    showError(err.message || 'Κάτι πήγε στραβά. Δοκίμασε ξανά.');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<span>🔍</span> Εξήγησέ το';
+  }
+}
+
+// ── KEYBOARD SHORTCUT ──
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') explain();
+});
+</script>
+</body>
+</html>
